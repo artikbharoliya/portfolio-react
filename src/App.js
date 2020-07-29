@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
-
+// import Testing from './components/testingComponent';
+import SideMenu from './components/sideMenu';
+import HomeComponent from './components/homeComponent';
+import {ThemeContextProvider} from './ThemeContext';
+import './css/main.scss'
 function App() {
+  const [themeData, setThemeData] = useState("")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <div className="App" className="Conatiner">
+        <ThemeContextProvider value={themeData}>
+
+          <SideMenu getTheme={setThemeData}/>
+
+
+
+          <HomeComponent className="Sample"/>
+          
+
+        </ThemeContextProvider>
+          
+
+          
+      </div>
+    
   );
 }
 
